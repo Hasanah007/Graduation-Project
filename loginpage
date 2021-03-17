@@ -1,0 +1,151 @@
+import 'package:flutter/material.dart';
+
+
+class loginpage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+        child: ClipRRect(
+          borderRadius: BorderRadius.zero,
+          child: Container(
+            width: 411.0,
+            height: 731.0,
+            child: Stack(
+                fit: StackFit.expand,
+                alignment: Alignment.center,
+                overflow: Overflow.visible,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.zero,
+                    child: Container(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 266.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Email',
+                            hintText: 'Enter valid email address'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 338.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      //padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: TextField(
+
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Password',
+                            hintText: 'Enter valid password'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 58.0,
+                    top: 417.0,
+                    right: null,
+                    bottom: null,
+                    width: 138.0,
+                    height: 27.0,
+                    child: Text(
+                      '''Forgot password?''',
+                      overflow: TextOverflow.visible,
+                      textAlign: TextAlign.right,
+                      style: TextStyle(
+                        height: 1.6666666666666667,
+                        fontSize: 15.0,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 45, 61, 92),
+
+                        /* letterSpacing: 0.5, */
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 495.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Container(
+                      height: 50,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.teal, borderRadius: BorderRadius.circular(20)),
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/firstpage');
+                        },
+                        child: Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white, fontSize: 25),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                    left: 120.0,
+                    top: 633.0,
+                    right: null,
+                    bottom: null,
+                    width: 189.0,
+                    height: 27.0,
+                    child: Row(
+                        children: <Widget>[
+                          FlatButton(
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/signuppage');
+                            },
+                            child: Text(
+                              'New User? Create Account',
+                              style: TextStyle(color: Colors.black, fontSize: 12),
+                            ),
+                          ),
+                        ]
+                    ),
+                  ),
+                  Positioned(
+                    left: 41.0,
+                    top: 109.0,
+                    right: null,
+                    bottom: null,
+                    width: 329.0,
+                    height: 150.0,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 60.0),
+                      child: Center(
+                        child: Container(
+                            width: 200,
+                            height: 150,
+                            child: Image.asset('asset/images/logo.jpg')),
+                      ),
+                    ),
+                  )
+                ]),
+          ),
+        ));
+  }
+}
