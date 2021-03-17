@@ -1,0 +1,179 @@
+import 'package:flutter/material.dart';
+
+class signuppage extends StatelessWidget {
+  bool _validatepass = false;
+  final _pass = TextEditingController();
+  final _user = TextEditingController();
+  bool _validateuser = false;
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+        child: ClipRRect(
+          borderRadius: BorderRadius.zero,
+          child: Container(
+            width: 411.0,
+            height: 731.0,
+            child: Stack(
+                fit: StackFit.expand,
+                alignment: Alignment.center,
+                overflow: Overflow.visible,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.zero,
+                    child: Container(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 273.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      //padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: TextField(
+                        controller: _pass,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            errorText: _validatepass ? 'Password cant be empty' : null,
+                            border: OutlineInputBorder(),
+                            labelText: 'Password',
+                            hintText: 'Enter new password'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 42.0,
+                    top: 200.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      child: TextField(
+                        controller: _user,
+                        decoration: InputDecoration(
+                            errorText: _validateuser ? 'Email cant be empty' : null,
+                            border: OutlineInputBorder(),
+                            labelText: 'Email',
+                            hintText: 'Enter email'),
+
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 42.0,
+                    top: 127.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Full name',
+                            hintText: 'Enter full name'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 346.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      child: TextField(
+
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Conform password',
+                            hintText: 'Enter password'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 419.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Padding(
+                      //padding: const EdgeInsets.only(left:15.0,right: 15.0,top:0,bottom: 0),
+                      padding: const EdgeInsets.only(
+                          left: 15.0, right: 15.0, top: 15, bottom: 0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Phone number',
+                            hintText: 'Enter phone number'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 47.0,
+                    top: 513.0,
+                    right: null,
+                    bottom: null,
+                    width: 327.0,
+                    height: 56.0,
+                    child: Container(
+                      height: 50,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          color: Colors.teal, borderRadius: BorderRadius.circular(20)),
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/loginpage');
+                        },
+                        child: Text(
+                          'Sign up',
+                          style: TextStyle(color: Colors.white, fontSize: 25),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  Positioned(
+                    left: 115.0,
+                    top: 615.0,
+                    right: null,
+                    bottom: null,
+                    width: 199.0,
+                    height: 27.0,
+                    child:Row(
+                        children: <Widget>[
+                          FlatButton(
+                            onPressed: (){
+                              Navigator.pushNamed(context, '/loginpage');
+                            },
+                            child: Text(
+                              'Already have an account?Login',
+                              style: TextStyle(color: Colors.black, fontSize: 11),
+                            ),
+                          ),
+                        ]
+                    ),
+                  ),
+
+                ]),
+          ),
+        ));
+  }
+}
