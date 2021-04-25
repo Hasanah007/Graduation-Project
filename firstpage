@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class firstpage extends StatelessWidget {
 
@@ -20,8 +20,8 @@ class firstpage extends StatelessWidget {
                 top:35,
                 left:15,
                 child: Container(
-                  height: 170,
-                  width: 170,
+                  height: 150,
+                  width: 150,
 
                   decoration: BoxDecoration(
 
@@ -44,8 +44,8 @@ class firstpage extends StatelessWidget {
                 top:35,
                 right:15,
                 child: Container(
-                  height: 170,
-                  width: 170,
+                  height: 150,
+                  width: 150,
 
                   decoration: BoxDecoration(
 
@@ -68,8 +68,8 @@ class firstpage extends StatelessWidget {
                 top:220,
                 left:15,
                 child: Container(
-                  height: 170,
-                  width: 170,
+                  height: 150,
+                  width: 150,
 
                   decoration: BoxDecoration(
 
@@ -85,11 +85,43 @@ class firstpage extends StatelessWidget {
                 ),
               ),
 
+              Positioned(
+                left: 27.0,
+                top: 495.0,
+                right: null,
+                bottom: null,
+                width: 327.0,
+                height: 56.0,
+                child: Container(
+                  height: 50,
+                  width: 250,
+                  decoration: BoxDecoration(
+                      color: Colors.teal, borderRadius: BorderRadius.circular(20)),
+                  child: FlatButton(
+                    onPressed: () async{
+                     signOut();
+                     Navigator.pushNamed(context, '/loginpage');
+
+                    },
+                    child: Text(
+                      'Log out',
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
+                  ),
+                ),
+              ),
+
             ],
           ),
 
         ),
       ),
     );
+  }
+
+  Future signOut() async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    _auth.signOut();
+    return ;
   }
 }
