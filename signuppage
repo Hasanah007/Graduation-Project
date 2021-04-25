@@ -1,4 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 class signuppage extends StatelessWidget {
   bool _validatepass = false;
@@ -139,8 +145,12 @@ class signuppage extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.teal, borderRadius: BorderRadius.circular(20)),
                       child: FlatButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/loginpage');
+                        onPressed: () async{
+                          bool registerDone = await register(_user.text.toString().trim(), _pass.text.toString().trim());
+                          if(registerDone)
+                              Navigator.pushNamed(context, '/loginpage');
+                          else
+                            print("feild");
                         },
                         child: Text(
                           'Sign up',
@@ -176,4 +186,17 @@ class signuppage extends StatelessWidget {
           ),
         ));
   }
+
+  Future<bool> register(String email, String password) async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      return true;
+    } catch(error){
+      return false;
+    }
+  }
+
+
 }
